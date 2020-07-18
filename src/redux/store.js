@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import logger from 'redux-logger';
 import { persistStore } from 'redux-persist';
 
-import rootReducer from './root-reducer';
+import rootReducer from './root.reducer';
 
 const composeEnhancers =
   process.env.NODE_ENV === 'development'
