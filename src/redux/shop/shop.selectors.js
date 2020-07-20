@@ -18,7 +18,7 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForPreview = createSelector(
   [selectCollections],
-  (collections) => Object.values(collections)
+  (collections) => (collections ? Object.values(collections) : [])
   // same as below
   // (collections) => Object.keys(collections).map((key) => collections[key])
 );
@@ -26,7 +26,7 @@ export const selectCollectionsForPreview = createSelector(
 export const selectCollection = memoize((collectionUrlParam) =>
   createSelector(
     [selectCollections],
-    (collections) => collections[collectionUrlParam]
+    (collections) => (collections ? collections[collectionUrlParam] : null)
     // before using data normalization.
     // collections.find(
     //   (collection) => collection.id === COLLECTION_ID_MAP[collectionUrlParam]
