@@ -16,6 +16,8 @@ const SignUp = ({ signUpStart }) => {
     confirmPassword: '',
   });
 
+  const { displayName, email, password, confirmPassword } = signUpForm;
+
   const handleChange = (event) => {
     const { name, value } = event.target;
 
@@ -28,7 +30,6 @@ const SignUp = ({ signUpStart }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { displayName, email, password, confirmPassword } = signUpForm;
     if (password !== confirmPassword) {
       alert('password does NOT match');
       return;
@@ -44,7 +45,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="text"
           name="displayName"
-          value={signUpForm.displayName}
+          value={displayName}
           onChange={handleChange}
           label="Display Name"
           required
@@ -52,7 +53,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="email"
           name="email"
-          value={signUpForm.email}
+          value={email}
           onChange={handleChange}
           label="Email"
           required
@@ -60,7 +61,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="password"
           name="password"
-          value={signUpForm.password}
+          value={password}
           onChange={handleChange}
           label="Password"
           required
@@ -68,7 +69,7 @@ const SignUp = ({ signUpStart }) => {
         <FormInput
           type="password"
           name="confirmPassword"
-          value={signUpForm.confirmPassword}
+          value={confirmPassword}
           onChange={handleChange}
           label="Confirm Password"
           required
